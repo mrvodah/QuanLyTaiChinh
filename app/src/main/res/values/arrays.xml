@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spend_stype">
+        <item>THU</item>
+        <item>CHI</item>
+    </string-array>
+
+    <string-array name="spend">
+        <item>NEC</item>
+        <item>EDUC</item>
+        <item>PLAY</item>
+        <item>LTSS</item>
+        <item>GIVE</item>
+        <item>FFA</item>
+    </string-array>
+</resources>

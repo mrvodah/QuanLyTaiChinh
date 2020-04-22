@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.quanlytaichinh.view.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/analystsFragment"
+        android:name="com.example.quanlytaichinh.view.ui.analysts.AnalystsFragment"
+        android:label="fragment_analysts"
+        tools:layout="@layout/fragment_analysts" />
+    <fragment
+        android:id="@+id/spendFragment"
+        android:name="com.example.quanlytaichinh.view.ui.spend.SpendFragment"
+        android:label="fragment_charge"
+        tools:layout="@layout/fragment_spend" >
+        <action
+            android:id="@+id/action_spendFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_spendFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+        <action
+            android:id="@+id/action_spendFragment_to_removeFragment"
+            app:destination="@id/removeFragment" />
+        <action
+            android:id="@+id/action_spendFragment_to_findFragment"
+            app:destination="@id/findFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.quanlytaichinh.view.ui.add.AddFragment"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" />
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.quanlytaichinh.view.ui.action.EditFragment"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_edit" >
+        <argument
+            android:name="spend"
+            app:argType="com.example.quanlytaichinh.model.Spend" />
+    </fragment>
+    <fragment
+        android:id="@+id/removeFragment"
+        android:name="com.example.quanlytaichinh.view.ui.action.RemoveFragment"
+        android:label="fragment_remove"
+        tools:layout="@layout/fragment_remove" >
+        <argument
+            android:name="spend"
+            app:argType="com.example.quanlytaichinh.model.Spend" />
+    </fragment>
+    <fragment
+        android:id="@+id/findFragment"
+        android:name="com.example.quanlytaichinh.view.ui.action.FindFragment"
+        android:label="fragment_find"
+        tools:layout="@layout/fragment_find" />
+</navigation>
