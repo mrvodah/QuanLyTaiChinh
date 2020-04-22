@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.ui.add.AddFragment">
+        tools:context=".view.ui.action.AddFragment">
 
         <TextView
             android:id="@+id/textView12"
@@ -62,23 +62,6 @@
                 app:layout_constraintEnd_toEndOf="@id/guideline5"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView4"
-                style="@style/TextViewSpendTitle"
-                android:text="Mã"
-                app:layout_constraintBottom_toTopOf="@id/view0"
-                app:layout_constraintStart_toStartOf="@+id/guideline4"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/tv_code"
-                style="@style/TextViewSpend"
-                android:layout_width="0dp"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/guideline5"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <View
                 android:id="@+id/view0"
                 android:layout_width="0dp"
@@ -86,23 +69,23 @@
                 android:background="@color/gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/guideline4"
-                app:layout_constraintTop_toBottomOf="@id/tv_code" />
+                app:layout_constraintTop_toBottomOf="parent" />
 
             <TextView
                 android:id="@+id/textView5"
                 style="@style/TextViewSpendTitle"
                 android:text="Thời gian"
-                app:layout_constraintTop_toBottomOf="@id/view0"
-                app:layout_constraintStart_toStartOf="@+id/guideline4" />
+                app:layout_constraintStart_toStartOf="@+id/guideline4"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/tv_time"
                 style="@style/TextViewSpend"
                 android:layout_width="0dp"
                 android:textAlignment="center"
-                app:layout_constraintTop_toBottomOf="@id/view0"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/guideline5" />
+                app:layout_constraintStart_toEndOf="@+id/guideline5"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/view1"

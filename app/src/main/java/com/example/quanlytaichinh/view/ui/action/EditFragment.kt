@@ -107,11 +107,14 @@ class EditFragment : Fragment() {
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
 
+        this.month = month + 1
+        this.year = year
+
         tv_time.setOnClickListener {
 
             val dpd = DatePickerDialog(activity!!, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
 
-                this.month = month + 1
+                this.month = monthOfYear + 1
                 this.year = year
                 time = "$dayOfMonth/" + (month + 1) + "/$year"
                 tv_time.text = time

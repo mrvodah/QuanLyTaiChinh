@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.quanlytaichinh.view.ui.add.AddFragment"
+        android:name="com.example.quanlytaichinh.view.ui.action.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" />
     <fragment

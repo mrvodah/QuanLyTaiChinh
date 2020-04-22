@@ -19,13 +19,13 @@ import com.example.quanlytaichinh.model.ManagerDatabase
 import com.example.quanlytaichinh.model.Spend
 import com.example.quanlytaichinh.util.hideSoftKeyboard
 import com.example.quanlytaichinh.view.adapter.SpendAdapter
+import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_edit.*
 import kotlinx.android.synthetic.main.fragment_find.*
 import kotlinx.android.synthetic.main.fragment_find.btn_add
 import kotlinx.android.synthetic.main.fragment_find.btn_cancel
 import kotlinx.android.synthetic.main.fragment_find.sp_category
 import kotlinx.android.synthetic.main.fragment_find.sp_section
-import kotlinx.android.synthetic.main.fragment_find.tv_code
 import kotlinx.android.synthetic.main.fragment_find.tv_time
 import kotlinx.coroutines.*
 import java.lang.Exception
@@ -95,11 +95,16 @@ class FindFragment : Fragment() {
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
 
+        this.month = month + 1
+        this.year = year
+        time = "$day/" + (month + 1) + "/$year"
+        tv_time.text = time
+
         tv_time.setOnClickListener {
 
             val dpd = DatePickerDialog(activity!!, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
 
-                this.month = month + 1
+                this.month = monthOfYear + 1
                 this.year = year
                 time = "$dayOfMonth/" + (month + 1) + "/$year"
                 tv_time.text = time
@@ -108,15 +113,13 @@ class FindFragment : Fragment() {
             dpd.show()
         }
         btn_add.setOnClickListener {
-            var name = tv_code.text.toString()
-            name = name.replace("#", "")
             val category = sp_category.selectedItemPosition
             val section = sp_section.selectedItem as String
 
             if(category == 0) {
-                findSpends(name, category, "")
+                findSpends(category, "")
             } else {
-                findSpends(name, category, section)
+                findSpends(category, section)
             }
         }
 
@@ -130,10 +133,10 @@ class FindFragment : Fragment() {
         findNavController().popBackStack()
     }
 
-    private fun findSpends(name: String, category: Int, section: String) {
+    private fun findSpends(category: Int, section: String) {
         try {
             uiScope.launch {
-                val spends = database.spendDao.getSpends(name.toInt(), time, category, section)
+                val spends = database.spendDao.getSpends(time, category, section)
                 spends.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
                     Log.d("TAG", "${it.size}")
                     if(it.isNullOrEmpty()) {

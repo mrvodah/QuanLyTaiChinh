@@ -26,11 +26,9 @@ class SectionAdapter : ListAdapter<Section, SectionAdapter.ViewHolder>(SectionDi
             binding.viewModel = item
 
             if(item.name.equals("TT")) {
-                binding.tvTitle.visibility = View.GONE
-                binding.tvPercent.visibility = View.GONE
+                binding.clContainer.visibility = View.GONE
             } else {
-                binding.tvTitle.visibility = View.VISIBLE
-                binding.tvPercent.visibility = View.VISIBLE
+                binding.clContainer.visibility = View.VISIBLE
             }
 
             binding.executePendingBindings()

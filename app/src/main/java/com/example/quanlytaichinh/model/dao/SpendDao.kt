@@ -19,7 +19,7 @@ interface SpendDao {
     @Query("select * from spend_table")
     fun getAllSpends(): LiveData<List<Spend>>
 
-    @Query("SELECT * from spend_table WHERE spendId = :code AND time = :time AND type = :type AND sectionName = :sectionName")
-    fun getSpends(code: Int, time: String, type: Int, sectionName: String): LiveData<List<Spend>>
+    @Query("SELECT * from spend_table WHERE time = :time AND type = :type AND sectionName = :sectionName")
+    fun getSpends(time: String, type: Int, sectionName: String): LiveData<List<Spend>>
 
 }

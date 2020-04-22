@@ -1,9 +1,8 @@
-package com.example.quanlytaichinh.view.ui.add
+package com.example.quanlytaichinh.view.ui.action
 
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +18,6 @@ import com.example.quanlytaichinh.util.SharedPreference
 import com.example.quanlytaichinh.util.hideSoftKeyboard
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.coroutines.*
-import kotlinx.coroutines.NonCancellable.cancel
 import java.util.*
 
 /**
@@ -95,7 +93,7 @@ class AddFragment : Fragment() {
 
             val dpd = DatePickerDialog(activity!!, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
 
-                this.month = month + 1
+                this.month = monthOfYear + 1
                 this.year = year
                 time = "$dayOfMonth/" + (month + 1) + "/$year"
                 tv_time.setText(time)
